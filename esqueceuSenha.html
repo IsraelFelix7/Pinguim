@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <title>Recuperação de Senha</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar cores-navbar">
+        <div class="container-fluid">
+            <img src="icons/logo.png" width="30" height="30">
+        </div>
+    </nav>
+
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 d-none d-md-block image-container"> </div>
+            <div class="col-lg-6 col-md-6 form-container">
+                <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box">
+                    <div class="logo mt-5 mb-3 text-center">
+                        <img src="icons/Pinguim_Logo_Black.png" width="100px">
+                    </div>
+                    <div class="reset-form d-block">
+                        <form class="reset-password-form">
+                            <h4 class="mb-3">Trocar sua senha</h4>
+                            <p class="mb-3 text-black">Por favor, entre com seu endereço de email e será enviado um link
+                                de recuperação</p>
+                            <div class="form-input">
+                                <span><i class="fa fa-envelope"></i></span>
+                                <input type="email" placeholder="Endereço de email" required>
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="btn">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="reset-confirmation d-none">
+
+                        <div class="mb-4">
+                            <h4 class="mb-3">O link foi enviado</h4>
+                            <h6 class="text-black">Por favor, verifique seu email</h6>
+                        </div>
+                        <div>
+                            <a href="index.html">
+                                <button type="submit" class="btn">Voltar</button>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/JavaScript">
+        function passwordReset(){
+            $('form.reset-password-form').on('submit', function(e){
+                e.preventDefault();
+                $('.reset-form')
+                .removeClass('d-block')
+                .addClass('d-none');
+                $('.reset-confirmation').addClass('d-block');
+            });
+        }
+
+        window.addEventListener('load', function(){
+            passwordReset();
+         });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
