@@ -85,3 +85,12 @@
 forget-link:hover, .register-link:hover, .login-link:hover{
     color: #2d0acc;
 }
+
+#buttonNovoEvento{
+    background-color: #174195;
+
+}
+
+#novoEvento{
+    margin-top: 20%;
+}
