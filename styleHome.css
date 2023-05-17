@@ -49,7 +49,7 @@ html, body{
 }
 
 #fixed{
-    background: url(img/palavrasNaCabeça.jpg) no-repeat center center fixed;
+    background: url(img/back.jpg) no-repeat center center fixed;
     display: table;
     height: 60%;
     position: relative;
