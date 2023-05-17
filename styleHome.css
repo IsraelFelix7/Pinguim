@@ -64,11 +64,11 @@ footer{
 }
 .fa{
     padding: 15px;
-    font-size: 25px;
+    font-size: 20px;
     color: #fff;
 }
 .fa:hover{
-    color: #D5D5D5;
+    color: #bbb6b6;
     text-decoration: none;
 }
 .icon{
