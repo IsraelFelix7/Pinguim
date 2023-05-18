@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Início Usuário</title>
+  <title>Meu Perfil</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,11 +22,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="indexHome.html"><img src="icons/logo.png" width="30" height="30"></a>
+                <a class="navbar-brand" href="userHome.html"><img src="icons/logo.png" width="30" height="30"></a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse-main">
                 <ul class="nav navbar-nav navbar-right text-white">
-                    <li><a class="active fa fa-home" href="#homeUser" aria-hidden="true"> Início</a></li>
+                    <li><a class="active fa fa-home" href="userHome.html" aria-hidden="true"> Início</a></li>
                     <li><a href="agenda.html" class="fa fa-calendar" aria-hidden="true"> Meus Agendamentos</a></li>
                     <li><a href="#" class="fa fa-building" aria-hidden="true"> Clínicas</a></li>
                     <li><a href="userPerfil.html" class="fa fa-user" aria-hidden="true"> Perfil</a></li>                          
@@ -35,27 +35,41 @@
         </div>
     </nav>    
 
-    <div id="homeUser">
-        <div class="landing-text">
-            <h1><strong>  Bem Vindo! </strong></h1>
-            <h3></h3>
-            <a  href="registrar.html" class="btn btn-primary btn-lg" type="button">Consultas</a>
-        </div>
-    </div>
-
-    <div class="padding" id="servico">
-        <div class="container">
+        <div class="container padding">
             <div class="row">
-                <div class="col-sm-6 text-center">
-                    <h2>Cuidando da Saúde</h2>
-                         <p class="lead">Cuide da sua saúde mental. Assim como cuidamos do nosso corpo, também precisamos dedicar atenção à nossa saúde emocional. Busque apoio, pratique o autocuidado e promova um ambiente de compreensão. Assista ao vídeo ao lado para saber mais sobre saúde mental e descubra maneiras de promover seu bem-estar emocional.</p>
-                </div>
-                <div class="col-sm-6 text-center">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/kuA2l7tXtE4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
+              <div class="col-md-6 offset-md-3">
+                <h3>Informações do Perfil:</h3>
+                <form class="mt-4">
+                  <div class="form-group">
+                    <label for="nome">Nome:</label>
+                    <input type="text" class="form-control" id="nome" value="João" />
+                  </div>
+                  <div class="form-group">
+                    <label for="apelido">Apelido:</label>
+                    <input type="text" class="form-control" id="apelido" value="Silva" />
+                  </div>
+                  <div class="form-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" class="form-control" id="telefone" value="(11) 9999-9999" />
+                  </div>
+                  <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" class="form-control" id="email" value="joao.silva@gmail.com" />
+                  </div>
+                  <div class="form-group">
+                    <label for="senha">Senha:</label>
+                    <input type="password" class="form-control" id="senha" value="********" />
+                  </div>
+                  <div class="form-group">
+                    <label for="data-nascimento">Data de Nascimento:</label>
+                    <input type="date" class="form-control" id="data-nascimento" value="1990-01-01" />
+                  </div>
+                  <button type="submit" class="btn btn-primary">Salvar</button>
+                  <a type="submit" href="indexHome.html" class="fa fa-sign-out" id="sair" aria-hidden="true">Sair</a>
+                </form>
+              </div>
             </div>
-        </div>
-        </div>
+          </div>
 
         <footer class="container-fluid text-center" id="contato">
             <div class="row">  
