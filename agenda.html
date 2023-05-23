@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minha Agenda</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+<body>
+
+    <nav class="navbar navbar cores-navbar">
+        <div class="container-fluid">
+            <a href="userHome.html"><img src="icons/logo.png" width="30" alt="Logo" height="30"></a>
+        </div>
+    </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>Minha Agenda</h1>
+      </div>
+    </div>
+    <div id="novoEvento" class="row my-2 mx-1 py-2 border rounded d-none">
+      <div class="col-12">
+        <form action="" id="formNovoEvento">
+          <div class="row">
+            <div class="col-12">
+              <h2>Nova Consulta</h2>
+            </div>
+          </div>
+          <div class="row g-3">
+            <div class="col-12">
+                <label for="nomeEvento" class="form-label">Nome da Instituição</label>
+                <div>              
+                  <select name="selecaoinstituição" title="selecao instituição" id="selecaoClinica" alt="Selecao de clinicas disponiveis">
+                  <option>Senac</option>
+                  <option>Unit</option>
+                  <option>Uninassau</option>
+                  <option>Unibra</option>
+                  <option>UFPE</option>
+                  <option>FAFIRE</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-12">
+              <label for="nomeEvento" class="form-label">Tipo de Consullta</label>
+              <div>              
+                <select name="tipoConsulta" title="selecao tipo consulta" id="tipoConsulta" alt="Tipo de consulta disponiveis">
+                <option>Exame de Rotina</option>
+                <option>Psicólogo</option>
+                <option>Psicoterapeuta</option>
+                <option>Análise Psicológica</option>
+              </select>
+            </div>
+          </div>
+            <div class="col-3">
+              <label for="dataEvento" class="form-label">Data da Consulta</label>
+              <input type="datetime-local" name="dataEvento" id="dataEvento" class="form-control">
+            </div>
+            <div class="col-12">
+              <div id="mensagemErro" class="alert alert-danger d-none" role="alert">
+                Mensagem de Erro!
+              </div>
+            </div>
+            <div class="col-3"><button type="button" class="btn btn-danger w-100" id="buttonCancelar">Cancelar</button></div>
+            <div class="col-3"><button type="submit" class="btn btn-primary w-100">Salvar</button></div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2>
+          Consultas
+        </h2>
+      </div>
+      <div class="col-auto">
+        <button type="button" class="btn btn-success" id="buttonNovoEvento">Nova consulta</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <table class="table">
+          <thead>
+            <th scope="col">Data</th>
+            <th scope="col">clinica</th>
+          </thead>
+          <tbody>
+            <td colspan="3">Nenhuma consulta</td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script>
+    var buttonNovoEvento = document.getElementById('buttonNovoEvento');
+    var buttonCancelar = document.getElementById('buttonCancelar');
+    var novoEvento = document.getElementById('novoEvento');
+    var formNovoEvento = document.getElementById('formNovoEvento');
+    var inputNomeEvento = document.getElementById('nomeEvento');
+    var inputDataEvento = document.getElementById('dataEvento');
+    var divMensagemErro = document.getElementById('mensagemErro');
+    
+    function mostrarNovoEvento() {
+        novoEvento.classList.remove('d-none');
+    }
+    
+    function ocultarNovoEvento() {
+        
+        novoEvento.classList.add('d-none');
+    }
+    
+    function novoEventoValido(nomeEvento, dataEvento) {
+        var validacaoOk = true;
+        var erro = '';
+        if (nomeEvento.trim().length === 0) {
+            erro = 'O nome do evento é obrigatório!';
+            inputNomeEvento.classList.add('is-invalid');
+            validacaoOk = false;
+        } else {
+            inputNomeEvento.classList.remove('is-invalid');
+        }
+        var timestampEvento = Date.parse(dataEvento);
+        var timestampAtual = (new Date()).getTime();
+        if (isNaN(timestampEvento) || timestampEvento < timestampAtual) {
+            if (erro.length > 0) {
+                erro += '<br>'
+            }
+            erro += 'A data do evento é obrigatória e deve estar no futuro!';
+            inputDataEvento.classList.add('is-invalid');
+            validacaoOk = false;
+        } else {
+            inputDataEvento.classList.remove('is-invalid');
+        }
+    
+        if (!validacaoOk) {
+            divMensagemErro.innerHTML = erro;
+            divMensagemErro.classList.remove('d-none');
+        } else {
+            divMensagemErro.classList.add('d-none');
+        }
+    
+        return validacaoOk;
+    }
+    
+    function salvarNovoEvento(event) {
+        event.preventDefault();
+        var nomeEvento = inputNomeEvento.value;
+        var dataEvento = inputDataEvento.value;
+        if (novoEventoValido(nomeEvento, dataEvento)) {
+            console.log('Evento é válido!');
+        } else {
+            console.log('Evento é inválido!');
+        }
+    }
+    
+    buttonNovoEvento.addEventListener('click', mostrarNovoEvento);
+    buttonCancelar.addEventListener('click', ocultarNovoEvento);
+    formNovoEvento.addEventListener('submit', salvarNovoEvento);
+    </script>
+</body>
+</html>
